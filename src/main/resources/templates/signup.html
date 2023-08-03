@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Signup Page</title>
+</head>
+<style>
+    body {
+        font-family: "Copperplate", Fantasy;
+        background-color: #dfd3c3;
+    }
+     .error-message {
+            color: red;
+            font-size: 20px;
+        }
+
+    input, textarea {
+        font-family: "Copperplate", Fantasy;
+        background-color: #f0ece2;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 14px;
+        border: 2px solid black;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    table {
+        background-color: #c7b198;
+        border-collapse: collapse;
+        width: 400px;
+        margin: 20px auto;
+    }
+
+    th, td {
+        background-color: #c7b198;
+        border: 2px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #c7b198;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dfd3c3;
+    }
+
+    button {
+        font-family: "Copperplate", Fantasy;
+        border: 2px solid #dfd3c3;
+        padding: 8px 15px;
+        font-size: 14px;
+        background-color: #c7b198;
+        border-color: black;
+        margin-top: 20px;
+        width: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    button:hover {
+        background-color: #dfd3c3;
+    }
+</style>
+<body>
+<h2>Signup</h2>
+<form th:action="@{/signup}" method="post">
+    <table>
+        <tr>
+            <td><label for="username">Username:</label></td>
+            <td><input type="text" id="username" name="username" required></td>
+        </tr>
+        <tr>
+            <td><label for="name">name:</label></td>
+            <td><input type="text" id="name" name="name" required></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password:</label></td>
+            <td><input type="password" id="password" name="password" required></td>
+        </tr>
+    </table>
+
+    <div>
+        <button type="submit">Signup</button>
+        <div class="error-message" th:if="${error}" th:text="${error}"></div>
+    </div>
+
+</form>
+
+
+<div th:if="${errorMessage}" class="error-message" th:text="${errorMessage}"></div>
+
+</div>
+</body>
+</html>

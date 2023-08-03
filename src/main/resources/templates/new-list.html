@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New List</title>
+    <style>
+        body {
+            font-family: "Copperplate", Fantasy;
+            background-color: #c7b198;
+            text-align: center;
+        }
+        input, textarea {
+            font-family: "Copperplate", Fantasy;
+            background-color: #dfd3c3;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 14px;
+            border: 2px solid black;
+        }
+         table {
+            border-collapse: collapse;
+            padding: 50px;
+            width: 600px;
+            margin: 0 auto;
+            background-color: #f5ebd9;
+        }
+        th, td {
+            border: 2px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        input[type="submit"] {
+            font-family: "Copperplate", Fantasy;
+            border: 2px solid #dfd3c3;
+            padding: 8px 15px;
+            font-size: 14px;
+             background-color: #c7b198;
+            border-color: black;
+
+
+            margin-top: 20px;
+            width: 150px;
+        }
+        input[type="submit"]:hover {
+            background-color: #dfd3c3;
+        }
+</style>
+</head>
+<body>
+<h1>Create a New List</h1>
+<form action="/new/name" method="post">
+    <table>
+        <tr>
+            <td><label for="listName">List Name:</label></td>
+            <td><input type="text" id="listName" name="listName" required></td>
+        </tr>
+        <tr>
+            <td><label for="description">Description:</label></td>
+            <td>
+                <textarea id="description" name="description" style="width: 100%; height: 150px;" oninput="updateCharacterCount()"></textarea>
+            </td>
+        </tr>
+    </table>
+    <div id="characterCount">Characters remaining: 250</div>
+    <input type="submit" value="Submit">
+    <span id="errorMessage" class="error"></span>
+</form>
+
+<script>
+     function updateCharacterCount() {
+        var descriptionInput = document.getElementById("description");
+        var characterCount = document.getElementById("characterCount");
+        var descriptionValue = descriptionInput.value;
+
+        var currentCount = 250 - descriptionValue.length;
+
+        if (currentCount >= 0) {
+            characterCount.textContent = "Characters remaining: " + currentCount;
+        } else {
+            // Prevent entering more characters
+            descriptionInput.value = descriptionValue.slice(0, 250);
+            currentCount = 0;
+        }
+
+        if (currentCount === 0) {
+            descriptionInput.setAttribute("maxlength", 250);
+        } else {
+            // Re-enable input after hitting the character limit
+            descriptionInput.removeAttribute("maxlength");
+        }
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Wishlist Tickets</title>
+    <style>
+        body {
+            font-family: "Copperplate", Fantasy;
+            background-color: #f0ece2;
+        }
+        .error-message {
+            color: red;
+            font-size: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 400px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+              button {
+              font-family: "Copperplate", Fantasy;
+            padding: 5px 5px;
+            font-size: 14px;
+            background-color: #c7b198;
+             border: none;
+            outline: none;
+
+        }
+        button:hover {
+            background-color: #dfd3c3;
+        }
+
+    select {
+    background-color: #c7b198;
+
+    border: 1px solid #c7b198;
+    padding: 5px;
+    font-size: 14px;
+    font-family: "Copperplate", Fantasy;
+
+}
+select:focus {
+    outline: none;
+    background-color: #dfd3c3;
+}
+       input, textarea {
+    font-family: "Copperplate", Fantasy;
+    font-size: 14px;
+}
+
+
+
+    </style>
+</head>
+<body>
+<h2>Hello, <span th:text="${userName}"></span>! Select a list:</h2>
+<form method="post" th:action="@{/results}">
+    <select name="listId">
+        <option value="">Select a list</option>
+        <option th:each="userList : ${userLists}" th:text="${userList.listName}" th:value="${userList.id}"></option>
+    </select>
+    <button type="submit">Show Wishlist</button>
+</form>
+
+<h2>Wishlist Tickets:</h2>
+<form method="post" th:action="@{/delete/ticket}">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Url</th>
+            <th>imageUrl</th>
+            <th>price</th>
+            <th>rating</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="ticket : ${tickets}">
+            <td th:text="${ticket.name}"></td>
+            <td>
+                <a th:href="${ticket.Url}" th:text="${#strings.abbreviate(ticket.Url, 30)}">Link</a>
+            </td>
+
+            <td>
+                <img alt="Ticket Image" height="75" th:src="${ticket.imageUrl}" width="75">
+            </td>
+            <td th:text="'$' + ${ticket.price}"></td>
+            <td th:text="${ticket.rating}"></td>
+            <td th:text="${ticket.description}"></td>
+            <td>
+                <!-- Edit link -->
+                <a th:href="@{/modify/ticket/{id}(id=${ticket.id})}">Edit</a>
+            </td>
+            <td>
+                <input name="selectedTickets" th:value="${ticket.id}" type="checkbox"/>
+            </td>
+        </tr>
+    </table>
+    <button type="submit">Delete Selected</button>
+    <div class="error-message" th:if="${error}" th:text="${error}"></div>
+</form>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Change User Information</title>
+    <style>
+        body {
+            font-family: "Copperplate", Fantasy;
+            background-color: #dfd3c3;
+
+        }
+           input, textarea {
+            font-family: "Copperplate", Fantasy;
+             background-color: #f0ece2;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 14px;
+            border: 2px solid black;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            background-color: #c7b198;
+            border-collapse: collapse;
+            width: 1000px;
+            margin: 20px auto;
+        }
+        th, td {
+            background-color: #c7b198;
+            border: 2px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+        th {
+            background-color: #c7b198;
+        }
+        tr:nth-child(even) {
+            background-color: #c7b198;
+        }
+        input[type="submit"] {
+          font-family: "Copperplate", Fantasy;
+            padding: 5px 15px;
+            font-size: 14px;
+            background-color: #c7b198;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+         input[type="submit"]:hover {
+            background-color: #dfd3c3;
+
+        }
+
+         input, textarea {
+    font-family: "Copperplate", Fantasy;
+    font-size: 14px;
+}
+    </style>
+</head>
+<body>
+<h1>Change User Information</h1>
+<form action="/modify/info" method="post" th:object="${updatedUserDetails}">
+    <table>
+        <tr>
+            <th><label for="username">Username:</label></th>
+            <td><input type="text" id="username" name="username" th:value="*{username}" /></td>
+        </tr>
+        <tr>
+            <th><label for="name">name:</label></th>
+            <td><input type="text" id="name" name="name" th:value="*{name}" /></td>
+        <tr>
+            <th><label for="password">Password:</label></th>
+            <td><input type="password" id="password" name="password" th:value="*{password}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <input type="submit" value="Save Changes" />
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MyWishVault</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+         font-family: "Copperplate", Fantasy;
+         }
+
+    h1, h3 {
+         font-family: "Copperplate", Fantasy;
+    }
+
+    p {
+         font-family: "Copperplate", Fantasy;
+    }
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="display: flex; align-items: center;">
+                <img src="https://cdn-icons-png.flaticon.com/128/9431/9431498.png" alt="Logo" width="50" height="50" style="margin-right: 5px; filter: brightness(500%);"/>
+
+
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/lists">Create a name for List</a></li>
+                <li><a href="/contact">Info</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="/sign/up/form"><span class="glyphicon glyphicon-log-in"></span> Create account</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+            <p><a href="/Ticket">Submit a wish-list item</a></p>
+            <p><a href="/results">View your wish-list items</a></p>
+            <p><a href="/info">Update login credentials</a></p>
+
+
+
+        </div>
+        <div class="col-sm-8 text-left">
+            <h1>Welcome to MyWishVault </h1>
+            <p> This is a place where you can create and build your own wishlist for holidays, birthdays, or just to keep your items on record
+                .</p>
+            <hr>
+            <h3>Why We Created the MyWishVault App</h3>
+            <p>At MyWishVault, we wanted to provide a convenient
+                and organized platform for users to keep track of their wishes, dreams, and goals.
+                We believe that having a centralized wishlist can help individuals stay motivated, prioritize their
+                aspirations, and make progress towards achieving them. Our app aims to simplify the process of managing
+                and visualizing your wishes, making it easier to bring them to life.</p>
+            <h3>Features of MyWishVault</h3>
+            <p>Features that MyWishVault offers, is the ability to create and save your wish items that you would like to purchase
+                or keep memory of. With MyWishVault, you also have the ability to create a list for friends or family, and share this list as well
+                .</p>
+
+
+        </div>
+        <div class="col-sm-2 sidenav">
+            <div class="well">
+                <p>Common Stores</p>
+            </div>
+            <div class="well">
+                <img src="https://cdn-icons-png.flaticon.com/128/11423/11423450.png" height="25" width="25">
+                <a href="https://www.amazon.com">Amazon</a>
+            </div>
+            <div class="well">
+                <img src="https://cdn-icons-png.flaticon.com/128/5977/5977595.png" height="25" width="25">
+                <a href="https://www.walmart.com">Walmart</a>
+            </div>
+            <div class="well">
+                <img src="https://cdn-icons-png.flaticon.com/128/732/732229.png" height="25" width="25">
+                <a href="https://www.nike.com">Nike</a>
+            </div>
+            <div class="well">
+                <img src="https://cdn-icons-png.flaticon.com/128/0/747.png" height="25" width="25">
+                <a href="https://www.apple.com">Apple</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<footer class="container-fluid text-center">
+    <p> ©2023 MyWishVault | All rights reserved</p>
+</footer>
+
+</body>
+</html>
