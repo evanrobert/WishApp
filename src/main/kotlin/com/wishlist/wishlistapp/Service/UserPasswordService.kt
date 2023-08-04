@@ -16,4 +16,13 @@ class UserPasswordService {
         }
         return true
     }
+    fun setPasswordRequirements(password: String):Boolean{
+        val uppercaseLetterRegex = Regex(".*[A-Z].*")
+
+        if (!uppercaseLetterRegex.matches(password)) {
+            return false
+        }
+        return true
+
+    }
 }
