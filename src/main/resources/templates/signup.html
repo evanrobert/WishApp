@@ -9,9 +9,12 @@
         background-color: #dfd3c3;
     }
      .error-message {
-            color: red;
-            font-size: 20px;
-        }
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: red;
+    font-size: 20px;
+}
 
     input, textarea {
         font-family: "Copperplate", Fantasy;
@@ -91,10 +94,6 @@
     </div>
 
 </form>
-
-
-<div th:if="${errorMessage}" class="error-message" th:text="${errorMessage}"></div>
-
 </div>
 </body>
 </html>
