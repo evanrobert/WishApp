@@ -8,7 +8,7 @@ class UserPasswordService {
     @Autowired
     private lateinit var userLoginDetails: userLoginDetails
 
-    fun setUsernameRequirements(username: String): Boolean {
+    fun setUsernameCasingRequirements(username: String): Boolean {
         val uppercaseLetterRegex = Regex(".*[A-Z].*")
 
         if (!uppercaseLetterRegex.matches(username)) {
@@ -16,10 +16,19 @@ class UserPasswordService {
         }
         return true
     }
-    fun setPasswordRequirements(password: String):Boolean{
+
+    fun setPasswordCasingRequirements(password: String): Boolean {
         val uppercaseLetterRegex = Regex(".*[A-Z].*")
 
         if (!uppercaseLetterRegex.matches(password)) {
+            return false
+        }
+        return true
+
+    }
+
+    fun setPasswordStrength(password: String): Boolean {
+        if (password.length < 8) {
             return false
         }
         return true

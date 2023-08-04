@@ -40,16 +40,20 @@ class SignUpController(private val userLoginDetailsRepo: userLoginDetailsRepo,
         newUser.username = userLoginDetails.username
         val passwordService = UserPasswordService()
 
-        val validationOfCap = passwordService.setUsernameRequirements(userLoginDetails.username)
+        val validationOfCap = passwordService.setUsernameCasingRequirements(userLoginDetails.username)
         if (!validationOfCap) {
             redirectAttributes.addFlashAttribute("error", "username must contain at least one capital")
             return "redirect:/sign/up/form"
         }
-            val validationOfCapForPassword = passwordService.setPasswordRequirements(userLoginDetails.password)
+            val validationOfCapForPassword = passwordService.setPasswordCasingRequirements(userLoginDetails.password)
         if(!validationOfCapForPassword) {
             redirectAttributes.addFlashAttribute("error", "Password must contain at least one capital")
             return "redirect:/sign/up/form"
-        }else{
+        }
+            if (!passwordService.setPasswordStrength(userLoginDetails.password)) {
+                redirectAttributes.addFlashAttribute("error", "Password must contain at least 8 characters")
+                return "redirect:/sign/up/form"
+            }else{
 
             val encodedPassword = passwordEncoder.encode(userLoginDetails.password)
             newUser.password = encodedPassword
