@@ -6,7 +6,7 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 class WishlistappApplication
 //Completed?
-//Features to add ... 
+//Features to add ...
 fun main(args: Array<String>) {
 	runApplication<WishlistappApplication>(*args)
 }
