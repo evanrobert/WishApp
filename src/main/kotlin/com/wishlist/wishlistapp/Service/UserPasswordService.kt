@@ -34,4 +34,11 @@ class UserPasswordService {
         return true
 
     }
+
+    fun setUserNameReqs(username: String): Boolean {
+        if (username.length < 6) {
+            return false
+        }
+        return true
+    }
 }

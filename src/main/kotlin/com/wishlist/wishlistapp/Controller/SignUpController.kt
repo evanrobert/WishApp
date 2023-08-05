@@ -53,6 +53,12 @@ class SignUpController(private val userLoginDetailsRepo: userLoginDetailsRepo,
             if (!passwordService.setPasswordStrength(userLoginDetails.password)) {
                 redirectAttributes.addFlashAttribute("error", "Password must contain at least 8 characters")
                 return "redirect:/sign/up/form"
+            }
+                if(!passwordService.setUserNameReqs(userLoginDetails.username)){
+                    redirectAttributes.addFlashAttribute("error", "username must contain at least 6 characters")
+                    return "redirect:/sign/up/form"
+
+
             }else{
 
             val encodedPassword = passwordEncoder.encode(userLoginDetails.password)
